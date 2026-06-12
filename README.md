@@ -1,6 +1,6 @@
 # ⚡ Lead IQ — AI-Powered Coffee Shop Sales Pipeline
 
-A Next.js app that tracks sales leads for coffee shop equipment and services, scoring each lead 1–10 using Groq AI so your team knows exactly who to call first.
+A Next.js app that tracks sales leads for coffee shop equipment and services, scoring each lead 0–100 using a 3-step Groq AI pipeline so your team knows exactly who to call first.
 
 **GitHub:** https://github.com/Yasminenaser1/-lead-iq
 
@@ -8,10 +8,12 @@ A Next.js app that tracks sales leads for coffee shop equipment and services, sc
 
 ## What it does
 
-- Add leads (company, contact, size, notes)
-- Click **⚡ Analyze** — Groq AI scores the lead 1–10 with a reason
-- Track status: New → Contacted → Qualified → Closed
-- Dashboard shows total leads, qualified count, and average AI score
+- Add leads (company, contact, title, size, notes)
+- Click **⚡ Analyze** — Groq AI runs a 3-step pipeline: Research → Scoring → Writer
+- Score out of 100 shown as a color-coded progress bar
+- Track status: New → Contacted → Qualified → Closed → Disqualified
+- Filter leads by status with a tab bar
+- Dashboard shows total leads, new count, qualified count, and average AI score
 - All data persists locally in `leads.json`
 
 ---
@@ -50,10 +52,20 @@ Open **http://localhost:3000**
 
 ---
 
+## AI Pipeline
+
+Each lead goes through 3 AI steps when you click ⚡ Analyze:
+
+1. **Research** — extracts industry, seniority, budget authority, follow-up readiness
+2. **Scoring** — scores 0–100 with confidence level and reasons
+3. **Writer** — one-sentence summary of the score
+
+---
+
 ## Score guide
 
-| Score | Color  | Meaning                        |
-|-------|--------|--------------------------------|
-| 8–10  | 🟢 Green  | Hot lead — high priority    |
-| 5–7   | 🟡 Orange | Warm lead — follow up       |
-| 1–4   | 🔴 Red    | Cold lead — low priority    |
+| Score  | Color     | Meaning                        |
+|--------|-----------|--------------------------------|
+| 70–100 | 🟢 Green  | Hot lead — high priority       |
+| 40–69  | 🟡 Orange | Warm lead — follow up          |
+| 1–39   | 🔴 Red    | Cold lead — low priority       |
